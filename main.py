@@ -11,7 +11,6 @@ from dateutil import parser
 
 ticker = 'AAPL'
 
-
 class MACD:
     __macd = []
     __signal = []
