@@ -3,11 +3,13 @@
 class MACD:
     __macd = []
     __signal = []
-    __colapse = []
+    # TODO delete __collapse
+    __collapse = []
 
+    # TODO more comments in macd & sell/buy
     def __init__(self, exchange_rate):
         self.__macd = []
-        self.__colapse = []
+        self.__collapse = []
         for i in range(len(exchange_rate)):
             if i >= 26:
                 self.calc_macd(exchange_rate, i)
@@ -21,7 +23,7 @@ class MACD:
     def print(self):
         print(self.__macd)
         print(self.__signal)
-        print(self.__colapse)
+        print(self.__collapse)
 
     def calc_ema(self, period, data, day):
         alpha = 2 / (period + 1)
@@ -56,12 +58,12 @@ class MACD:
 
     def isCollapse(self, i):
         if self.__macd[i - 1] > self.__signal[i - 26 - 1] and self.__macd[i] < self.__signal[i - 26]:
-            self.__colapse.append(self.__signal[i - 26])
+            self.__collapse.append(self.__signal[i - 26])
         elif self.__macd[i - 1] < self.__signal[i - 26 - 1] and self.__macd[i] > self.__signal[i - 26]:
-            self.__colapse.append(self.__signal[i - 26-1])
+            self.__collapse.append(self.__signal[i - 26 - 1])
         else:
-            self.__colapse.append(float(0))
+            self.__collapse.append(float(0))
 
 
     def getCollapse(self, n=0):
-        return self.__colapse[n::]
+        return self.__collapse[n::]

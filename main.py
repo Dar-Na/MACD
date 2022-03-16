@@ -1,18 +1,9 @@
-import csv
+# by Dzianis Dziurdz 187726 in 2022
 from Macd import MACD
 from Data import Data
 from Plot import Plot
 
-
-import pandas as pd
-import numpy as np
-from datetime import datetime
-import tushare as ts
-from matplotlib import pyplot as plt
-import pyEX as p
-import yfinance as yf
-from dateutil import parser
-
+# main function
 if __name__ == "__main__":
     # company ticker
     ticker = 'AAPL'
@@ -40,3 +31,4 @@ if __name__ == "__main__":
                                            macd.getSignal(),
                                            macd.getCollapse(),
                                            df.get_name())
+    #TODO money simulation

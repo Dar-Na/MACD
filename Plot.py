@@ -1,6 +1,7 @@
 from matplotlib import pyplot as plt
 
 class Plot:
+    # TODO more comments in plot & change functions
     def show_macd_signal_diagram(self, time, macd, signal, name):
         plt.plot(time, macd, label="macd", color='blue')
         plt.plot(time, signal, label="signal", color='red')

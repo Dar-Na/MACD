@@ -1,9 +1,16 @@
+# use csv to save/rewrite data file
+# use yfinance(yahoo finance) to get data via actions
+# use parser to parse our data
 import csv
 import yfinance as yf
 from dateutil import parser
 
+# data class
 class Data:
+    # name = ticket
     __name = ''
+
+    #TODO more comments in data
 
     def __init__(self, name):
         self.__name = name
@@ -12,6 +19,7 @@ class Data:
         return self.__name
 
     def get_data(self):
+        # open file
         file = "./data/" + str(self.__name) + '.csv'
         f = open(file, 'r')
         data = list(csv.reader(f))
@@ -25,13 +33,8 @@ class Data:
 
     def init_data(self):
         # Request historic pricing data via finance.yahoo.com API
-        # start = "2017-03-07"
-        # end = datetime.today()
-        # hist = yf.download(self.__name, start=start, end=end)
         df = yf.Ticker(self.__name).history(period='1y')[['Close']]
         # Save our data
         df.to_csv('./data/' + self.__name + '.csv')
-        # hist.to_csv('./data/' + ticker + '.csv')
         # View our data
         print(df)
-        # print(hist)
