@@ -1,7 +1,11 @@
 # by Dzianis Dziurdz 187726 in 2022
+from math import floor
+
 from Macd import MACD
 from Data import Data
 from Plot import Plot
+
+starting_money = 1000 # kapital poczatkowy
 
 # main function
 if __name__ == "__main__":
@@ -32,3 +36,7 @@ if __name__ == "__main__":
                                            macd.getCollapse(),
                                            df.get_name())
     #TODO money simulation
+    money_lazy = macd.lazyMoney(share_price, starting_money)
+
+    print(ticker + ", poczatkowy kapital: " + str(starting_money)
+          + ", koncowy kapital: " + str(money_lazy))

@@ -5,12 +5,13 @@ import csv
 import yfinance as yf
 from dateutil import parser
 
+
 # data class
 class Data:
     # name = ticket
     __name = ''
 
-    #TODO more comments in data
+    # TODO more comments in data
 
     def __init__(self, name):
         self.__name = name
@@ -25,15 +26,20 @@ class Data:
         data = list(csv.reader(f))
         data = data[1::]
         # data.reverse()
+        # time parser
+        time = []
+        for t in data:
+            time.append(parser.parse(t[0]))
+        # price parser
+        share_price = []
+        for sp in data:
+            share_price.append(float(sp[1]))
 
-        time = [parser.parse(t[0]) for t in data]
-        exchange_rate = [float(ex[1]) for ex in data]
+        return time, share_price
 
-        return time, exchange_rate
-
-    def init_data(self):
+    def init_data(self, period='5y'):
         # Request historic pricing data via finance.yahoo.com API
-        df = yf.Ticker(self.__name).history(period='1y')[['Close']]
+        df = yf.Ticker(self.__name).history(period=period)[['Close']]
         # Save our data
         df.to_csv('./data/' + self.__name + '.csv')
         # View our data
