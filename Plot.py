@@ -1,4 +1,4 @@
-from matplotlib import pyplot as plt
+import matplotlib.pyplot as plt
 
 class Plot:
     # TODO more comments in plot & change functions
