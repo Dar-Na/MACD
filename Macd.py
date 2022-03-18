@@ -77,16 +77,16 @@ class MACD:
         for i in range(len(share_price)):
             if i >= 26:
                 if self.__macd[i - 1] > self.__signal[i - 26 - 1] and self.__macd[i] < self.__signal[i - 26]:
-                    # sell
+                    # buy
                     if self.__money != 0:
                         currency = float(self.__money / share_price[i])
                         self.__money = 0
                 elif self.__macd[i - 1] < self.__signal[i - 26 - 1] and self.__macd[i] > self.__signal[i - 26]:
-                    # buy
+                    # sell
                     if currency != 0:
                         self.__money = currency * share_price[i]
                         currency = 0
-        # jesli sprzedalismy akcji to musimy ich kupic zeby zdobyc zysk
+        # jesli kupilismy akcji to musimy ich sprzedac zeby zdobyc zysk
         if self.__money == 0:
             return float(currency * share_price[len(share_price)-1])
         else:

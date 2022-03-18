@@ -43,4 +43,4 @@ class Data:
         # Save our data
         df.to_csv('./data/' + self.__name + '.csv')
         # View our data
-        print(df)
+        # print(df)
