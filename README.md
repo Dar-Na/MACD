@@ -2,7 +2,7 @@
 
 Ten Projekt zawiera prostą implementacja wskaźnika MACD
 
-Wskaźnik giełdowy MACD (Moving Average Convergence / Divergence) – wskaźnik skonstruowany przez analityka Gerarda Appela w roku 1979. Wskaźnik bada zbieżności i rozbieżności średnich ruchomych. Jest różnicą wartości długoterminowej i krótkoterminowej średniej wykładniczej. Wykorzystywana jest do badania sygnałów kupna i sprzedaży akcji. 
+Wskaźnik giełdowy MACD (Moving Average Convergence / Divergence) – wskaźnik skonstruowany przez analityka Gerarda Appela w roku 1979. Wskaźnik bada zbieżności i rozbieżności średnich ruchomych. Jest różnicą wartości długoterminowej i krótkoterminowej średniej wykładniczej. Wykorzystywana jest do badania sygnałów kupna i sprzedaży akcji. (https://en.wikipedia.org/wiki/MACD)
 
 Project po Metodam Numerycznym w ramach przedmiotu "Metody Numeryczne"
 by srudent PG in 2022
